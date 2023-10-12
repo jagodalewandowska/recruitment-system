@@ -32,3 +32,5 @@ Powinno wyglądać tak (backend działa z bazą)
 
 Frontend znajduje się tutaj http://localhost:3000/, można zobaczyć czy łączy się z backendem:
 ![img_3.png](images/img_3.png)
+
+Jeśli nie było zmian w kodzie, nie trzeba robić npm install - ale jak doda się nowe biblioteki, to już trzeba.

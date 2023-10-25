@@ -29,4 +29,9 @@ public class CandidateServiceImpl implements CandidateService {
         return candidateRepository.findAll(pageable);
     }
 
+    @Override
+    public Candidate setCandidate(Candidate candidate) {
+        return candidateRepository.save(candidate);
+    }
+
 }

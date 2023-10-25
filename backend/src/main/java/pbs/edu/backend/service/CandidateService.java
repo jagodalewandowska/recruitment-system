@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface CandidateService {
     Optional<Candidate> getCandidate(Integer id);
     Page<Candidate> getCandidates(Pageable pageable);
+    Candidate setCandidate(Candidate candidate);
 }

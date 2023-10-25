@@ -5,8 +5,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pbs.edu.backend.model.Candidate;
 import pbs.edu.backend.service.CandidateService;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("/api")
@@ -27,5 +30,13 @@ public class CandidateController {
     @GetMapping(value = "/candidates")
     Page<Candidate> getEvents(Pageable pageable){
         return candidateService.getCandidates(pageable);
+    }
+
+    @PostMapping("/candidates")
+    ResponseEntity<Candidate> createCandidate(@RequestBody Candidate candidate) {
+        Candidate createdCandidate = candidateService.setCandidate(candidate);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{candidateId")
+                .buildAndExpand(createdCandidate.getId()).toUri();
+        return ResponseEntity.created(location).build();
     }
 }

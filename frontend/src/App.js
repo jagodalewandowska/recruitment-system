@@ -7,7 +7,7 @@ function App() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/candidates')
+    axios.get('http://localhost:8081/api/candidates')
         .then(response => setEvents(response.data.content))
         .catch(error => console.error(error));
   }, []);

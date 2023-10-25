@@ -14,7 +14,7 @@ Aplikacja na przedmiot Programowanie zwinne do rekrutacji pracowników.
    - Utwórz bazę o nazwie "rekrutacja"
    - Poleceniem scripts, insert zrób zapytanie na przykładowego kandydata, np. ``INSERT INTO candidate (name, surname)
       VALUES ('Jan', 'Kowalski');``
-2. BACKEND (localhost:8080)
+2. BACKEND (localhost:8081)
    - Kliknij prawym klawiszem na build.gradle -> build module
    - Jak nie wyskoczy u góry, to prawym BackendApplication -> run
    ![img.png](images/img0.png)
@@ -27,7 +27,7 @@ Aplikacja na przedmiot Programowanie zwinne do rekrutacji pracowników.
     - Wpisz ``npm start`` i ENTER
 
 ### Wskazówki :)
-Żeby przetestować backend, dodałam w controllerze TEST: http://localhost:8080/test
+Żeby przetestować backend, dodałam w controllerze TEST: http://localhost:8081/test
 Powinno wyglądać tak (backend działa z bazą)
 ![img_2.png](images/img_2.png)
 

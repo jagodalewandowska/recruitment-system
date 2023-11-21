@@ -1,30 +1,134 @@
-import logo from './logo.svg';
-import './App.css';
-import {useEffect, useState} from "react";
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
-function App() {
-  const [events, setEvents] = useState([]);
+import AuthService from "./services/auth.service";
+
+import Login from "./components/Login";
+import Register from "./components/Register";
+import Home from "./components/Home";
+import Profile from "./components/Profile";
+import BoardUser from "./components/BoardUser";
+import BoardModerator from "./components/BoardModerator";
+import BoardAdmin from "./components/BoardAdmin";
+
+import EventBus from "./common/EventBus";
+
+const App = () => {
+  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
+  const [showAdminBoard, setShowAdminBoard] = useState(false);
+  const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
-    axios.get('http://localhost:8081/api/candidates')
-        .then(response => setEvents(response.data.content))
-        .catch(error => console.error(error));
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
+      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
+    }
+
+    EventBus.on("logout", () => {
+      logOut();
+    });
+
+    return () => {
+      EventBus.remove("logout");
+    };
   }, []);
 
-  return (
-      <div>
-        <center><h3>Lista kandydatów</h3></center>
-        <ul>
-          {events.map(candidate => (
-              <li key={candidate.id}>
-                {candidate.id} - {candidate.name} {candidate.surname}
-              </li>
-          ))}
-        </ul>
-      </div>
-  );
-}
+  const logOut = () => {
+    AuthService.logout();
+    setShowModeratorBoard(false);
+    setShowAdminBoard(false);
+    setCurrentUser(undefined);
+  };
 
+  return (
+    <div>
+      <nav className="navbar navbar-expand navbar-light bg-light">
+        <Link to={"/"} className="navbar-brand">
+          Rekrutacja pracowników
+        </Link>
+        <div className="navbar-nav mr-auto">
+          <li className="nav-item">
+            <Link to={"/home"} className="nav-link">
+              Home
+            </Link>
+          </li>
+
+          {showModeratorBoard && (
+            <li className="nav-item">
+              <Link to={"/mod"} className="nav-link">
+                Panel moderatora
+              </Link>
+            </li>
+          )}
+
+          {showAdminBoard && (
+            <li className="nav-item">
+              <Link to={"/admin"} className="nav-link">
+                Panel administratora
+              </Link>
+            </li>
+          )}
+
+          {currentUser && (
+            <li className="nav-item">
+              <Link to={"/offers"} className="nav-link">
+                Oferty pracy
+              </Link>
+            </li>
+          )}
+        </div>
+
+        {currentUser ? (
+          <div className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link to={"/profile"} className="nav-link">
+                {currentUser.username}
+              </Link>
+            </li>
+            <li className="nav-item">
+              <a href="/login" className="nav-link" onClick={logOut}>
+                Wyloguj się
+              </a>
+            </li>
+          </div>
+        ) : (
+          <div className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link to={"/login"} className="nav-link">
+                Zaloguj się
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link to={"/register"} className="nav-link">
+                Zarejestruj się
+              </Link>
+            </li>
+          </div>
+        )}
+      </nav>
+
+      <div className="container mt-3">
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/home" element={<Home/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/register" element={<Register/>} />
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/offers" element={<BoardUser/>} />
+          <Route path="/mod" element={<BoardModerator/>} />
+          <Route path="/admin" element={<BoardAdmin/>} />
+
+        </Routes>
+      </div>
+
+    </div>
+  );
+};
 
 export default App;

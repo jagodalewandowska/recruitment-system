@@ -1,36 +1,28 @@
 # rekrutacja-pracowników
-Aplikacja na przedmiot Programowanie zwinne do rekrutacji pracowników.
 
+Aplikacja na przedmiot Programowanie Zwinne do rekrutacji pracowników.
 
-## Uruchomienie aplikacji
-
-1. #### POSTGRESQL 
-   - Otwórz pgAdmin, 
+1. ### PostgreSQL
+   - Otwórz pgAdmin,
    - zaloguj się (u: ``postgres``, h: ``politechnika``), chyba, że macie inaczej skonfigurowane
    - kliknij na server, PostgreSQL
-   - Prawy przycisk na bazie danych, create:
-   ![img.png](images/img.png)
-   - Utwórz bazę o nazwie "rekrutacja"
-   - Poleceniem scripts, insert zrób zapytanie na przykładowego kandydata, np. ``INSERT INTO candidate (name, surname)
-      VALUES ('Jan', 'Kowalski');``
-2. #### BACKEND (localhost:8080)
-   - Kliknij prawym klawiszem na build.gradle -> build module
-   - Jak nie wyskoczy u góry, to prawym BackendApplication -> run
-   ![img.png](images/img0.png)
-3. #### FRONTEND (localhost:3000)
-    - Otwórz terminal
-    - Wpisz ``cd f`` i kliknij przycisk TAB, powinno wyskoczyć:
-   ![img_1.png](images/img_1.png)
-    - Wciśnij enter
-    - Wpisz ``npm install`` i ENTER (będzie się dużo działo xd)
-    - Wpisz ``npm start`` i ENTER
+   - Prawy przycisk na bazie danych, create
+   - Utwórz bazę o nazwie "rekrutacjap"
+2. ### Backend (localhost:8082)
+   - Powinno wyskoczy load po lewej na dole - Maven build/load
+   - Prawym na BackendApplication tam gdzie zawsze i run
+3. ### Frontend (localhost:3000)
+   - zakładka terminal
+   - cd f ~wciśnij przycisk tab~,
+   - npm install 
+   - npm start
 
-## Wskazówki :)
-Żeby przetestować backend, dodałam w controllerze TEST: http://localhost:8080/test
-Powinno wyglądać tak (backend działa z bazą)
-![img_2.png](images/img_2.png)
+## JIRA
 
-Frontend znajduje się tutaj http://localhost:3000/, można zobaczyć czy łączy się z backendem:
-![img_3.png](images/img_3.png)
+https://lewandowska-app.atlassian.net/jira/software/projects/PZ/boards/1
 
-Jeśli nie było zmian w kodzie, nie trzeba robić npm install - ale jak doda się nowe biblioteki, to już trzeba.
+## Informacje dodatkowe
+
+Przy starcie aplikacji dodaje się administrator 
+login: admin
+hasło: admin123

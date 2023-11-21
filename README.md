@@ -17,6 +17,10 @@ Aplikacja na przedmiot Programowanie Zwinne do rekrutacji pracowników.
    - npm install 
    - npm start
 
+Stan na ten moment:
+
+![img.png](img.png)
+
 ## JIRA
 
 https://lewandowska-app.atlassian.net/jira/software/projects/PZ/boards/1

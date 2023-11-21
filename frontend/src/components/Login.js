@@ -10,7 +10,7 @@ const required = (value) => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Pole wymagane!
       </div>
     );
   }
@@ -91,7 +91,7 @@ const Login = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Hasło</label>
             <Input
               type="password"
               className="form-control"
@@ -107,7 +107,7 @@ const Login = () => {
               {loading && (
                 <span className="spinner-border spinner-border-sm"></span>
               )}
-              <span>Login</span>
+              <span>Zaloguj się</span>
             </button>
           </div>
 

@@ -10,7 +10,7 @@ const required = (value) => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
-        This field is required!
+        Pole wymagane.
       </div>
     );
   }
@@ -20,7 +20,7 @@ const validEmail = (value) => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
-        This is not a valid email.
+        To nie jest poprawna wartość e-mail.
       </div>
     );
   }
@@ -30,7 +30,7 @@ const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
+        Nazwa użytkownika powinna się mieścić między 3, a 20 znakami.
       </div>
     );
   }
@@ -40,7 +40,7 @@ const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
+        Hasło powinno się mieścić między 6, a 40 znakami.
       </div>
     );
   }
@@ -137,7 +137,7 @@ const Register = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Hasło</label>
                 <Input
                   type="password"
                   className="form-control"
@@ -149,7 +149,7 @@ const Register = () => {
               </div>
 
               <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
+                <button className="btn btn-primary btn-block">Zarejestruj się</button>
               </div>
             </div>
           )}

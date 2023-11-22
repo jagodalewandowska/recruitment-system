@@ -1,6 +1,7 @@
 package pbs.edu.rekrutacja.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import pbs.edu.rekrutacja.models.User;
 import pbs.edu.rekrutacja.repository.UserRepository;

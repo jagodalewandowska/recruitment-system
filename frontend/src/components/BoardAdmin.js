@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 
 import UserService from "../services/user.service";
 import EventBus from "../common/EventBus";
+import axios from 'axios';
+import authHeader from "../services/auth-header";
+
 
 const BoardAdmin = () => {
   const [content, setContent] = useState("");
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     UserService.getAdminBoard().then(
@@ -26,14 +30,43 @@ const BoardAdmin = () => {
         }
       }
     );
+
+    const getUsers = async () => {
+      try {
+        const response = await axios.get('http://localhost:8082/api/users',
+            { headers: authHeader() });
+        const filteredUsers = response.data.filter(user => user.username.toLowerCase() !== 'admin');
+        setUsers(filteredUsers);
+      } catch (error) {
+        console.error(`Error fetching users: ${error}`);
+      }
+    };
+
+    getUsers();
+
   }, []);
 
   return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
-    </div>
+      <div className="container">
+        <div className="table-responsive">
+          <table className="table">
+            <thead>
+            <tr>
+              <th scope="col">Numer</th>
+              <th scope="col">Adres e-mail</th>
+            </tr>
+            </thead>
+            <tbody>
+            {users.map((user, index) => (
+                <tr key={index}>
+                  <td>{index+1}</td>
+                  <td>{user.email}</td>
+                </tr>
+            ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
   );
 };
 

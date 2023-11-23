@@ -47,6 +47,7 @@ const BoardAdmin = () => {
 
   return (
       <div className="container">
+        <h3 className="mb-4">Lista kandydatów</h3>
         <div className="table-responsive">
           <table className="table">
             <thead>

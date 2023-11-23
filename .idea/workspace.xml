@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Profile update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home.js" afterDir="false" />
+    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Nav changes">
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/BoardAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BoardAdmin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +94,7 @@
       <workItem from="1700662469552" duration="3844000" />
       <workItem from="1700669385211" duration="14000" />
       <workItem from="1700691598332" duration="260000" />
-      <workItem from="1700731834490" duration="4391000" />
+      <workItem from="1700731834490" duration="4596000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1700583498570</created>
@@ -154,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700735436496</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Nav changes">
+      <created>1700736272769</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700736272769</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +185,7 @@
     <MESSAGE value="Auth cleanup" />
     <MESSAGE value="Auth changes" />
     <MESSAGE value="Profile update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Profile update" />
+    <MESSAGE value="Nav changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Nav changes" />
   </component>
 </project>

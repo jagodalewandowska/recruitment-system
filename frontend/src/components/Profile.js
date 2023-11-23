@@ -2,32 +2,55 @@ import React from "react";
 import AuthService from "../services/auth.service";
 
 const Profile = () => {
-  const currentUser = AuthService.getCurrentUser();
+    const currentUser = AuthService.getCurrentUser();
+    const roleTitle =
+        currentUser.roles && currentUser.roles.includes("ROLE_USER")
+            ? "użytkownika"
+            : currentUser.roles && currentUser.roles.includes("ROLE_ADMIN")
+                ? "administratora"
+                : currentUser.roles && currentUser.roles.includes("ROLE_MODERATOR")
+                    ? "moderatora"
+                    : "";
 
-  return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>
-          <strong>{currentUser.username}</strong> Profile
-        </h3>
-      </header>
-      <p>
-        <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
-        {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-      </p>
-      <p>
-        <strong>Id:</strong> {currentUser.id}
-      </p>
-      <p>
-        <strong>Email:</strong> {currentUser.email}
-      </p>
-      <strong>Authorities:</strong>
-      <ul>
-        {currentUser.roles &&
-          currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-      </ul>
-    </div>
-  );
+    return (
+        <div className="container mt-5">
+            <div className="card">
+                <div className="card-body">
+                    <div className="row">
+                        <div className="col-md-3 text-center">
+                            <img
+                                src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                                alt="profile-img"
+                                className="profile-img-card"
+                            />
+                        </div>
+                        <div className="col-md-9">
+                            <h3 className="mb-4">
+                                Profil {roleTitle}
+                            </h3>
+                            <hr />
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <p className="mb-2">
+                                        <strong>Adres e-mail:</strong>
+                                        <br></br>
+                                        {currentUser.email}
+                                    </p>
+                                    <strong>Nadane role:</strong>
+                                    <ul className="list-unstyled">
+                                        {currentUser.roles &&
+                                            currentUser.roles.map((role, index) => (
+                                                <li key={index}>{role}</li>
+                                            ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Profile;

@@ -33,15 +33,14 @@ const BoardAdmin = () => {
 
     const getUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:8082/api/users',
-            { headers: authHeader() });
+        const response = await axios.get("http://localhost:8082/api/users", { headers: authHeader() });
         const filteredUsers = response.data.filter(user => user.username.toLowerCase() !== 'admin');
+        // setUsers(response.data);
         setUsers(filteredUsers);
       } catch (error) {
         console.error(`Error fetching users: ${error}`);
       }
     };
-
     getUsers();
 
   }, []);

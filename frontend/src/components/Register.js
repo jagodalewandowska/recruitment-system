@@ -3,6 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
+import './css/Login.css';
 
 import AuthService from "../services/auth.service";
 
@@ -149,7 +150,9 @@ const Register = () => {
               </div>
 
               <div className="form-group">
-                <button className="btn btn-primary btn-block">Zarejestruj się</button>
+                <button className="btn btn-red btn-block">
+                  Zarejestruj się
+                </button>
               </div>
             </div>
           )}

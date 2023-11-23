@@ -5,7 +5,6 @@ const Home = () => {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
-        // Fetch the list of jobs from your API endpoint
         axios
             .get("http://localhost:8082/api/jobs")
             .then((response) => {

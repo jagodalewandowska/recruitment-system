@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   database:
-    image: postgres:42.6.0
+    image: postgres:latest
     restart: always
     environment:
       - POSTGRES_USER=postgres
@@ -11,6 +11,11 @@ services:
       - '5432:5432'
     volumes:
       - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
   frontend:
     container_name: frontend
     build: ./frontend
@@ -24,8 +29,6 @@ services:
   backend:
     build: backend
     restart: always
-    secrets:
-      - db-password
     networks:
       - react-spring
       - spring-mysql

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Register button matches login button now">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Dockerfile moved">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,6 +102,7 @@
       <workItem from="1700815778208" duration="102000" />
       <workItem from="1701184991267" duration="8000" />
       <workItem from="1701250539249" duration="519000" />
+      <workItem from="1701364263445" duration="754000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1700583498570</created>
@@ -183,7 +181,21 @@
       <option name="project" value="LOCAL" />
       <updated>1700737105412</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="docker-compose &amp; Dockerfile [to be checked]">
+      <created>1701364302819</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1701364302819</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Dockerfile moved">
+      <created>1701364422755</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1701364422755</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +224,8 @@
     <MESSAGE value="Nav changes" />
     <MESSAGE value="Adding page name" />
     <MESSAGE value="Register button matches login button now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Register button matches login button now" />
+    <MESSAGE value="docker-compose &amp; Dockerfile [to be checked]" />
+    <MESSAGE value="Dockerfile moved" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile moved" />
   </component>
 </project>

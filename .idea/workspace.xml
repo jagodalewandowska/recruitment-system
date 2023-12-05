@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Dockerfile moved">
+    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="docker-compose healthcheck &amp; postgres version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +103,9 @@
       <workItem from="1700815778208" duration="102000" />
       <workItem from="1701184991267" duration="8000" />
       <workItem from="1701250539249" duration="519000" />
-      <workItem from="1701364263445" duration="754000" />
+      <workItem from="1701364263445" duration="1382000" />
+      <workItem from="1701641677969" duration="13000" />
+      <workItem from="1701760667147" duration="839000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1700583498570</created>
@@ -195,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701364422755</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="docker-compose healthcheck &amp; postgres version">
+      <created>1701365033446</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1701365033446</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +236,7 @@
     <MESSAGE value="Register button matches login button now" />
     <MESSAGE value="docker-compose &amp; Dockerfile [to be checked]" />
     <MESSAGE value="Dockerfile moved" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile moved" />
+    <MESSAGE value="docker-compose healthcheck &amp; postgres version" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker-compose healthcheck &amp; postgres version" />
   </component>
 </project>

@@ -104,4 +104,14 @@ class UserControllerTest {
         verify(userService, times(1)).updateUser(anyLong(), any(User.class));
         verifyNoMoreInteractions(userService);
     }
+
+    @Test
+    void deleteUser_shouldReturnNoContent() throws Exception {
+        mockMvc.perform(delete("/api/users/{userId}", 1))
+                .andExpect(status().isOk());
+
+        verify(userService, times(1)).deleteUser(1L);
+        verifyNoMoreInteractions(userService);
+    }
+
 }

@@ -70,4 +70,20 @@ class UserControllerTest {
         verify(userService, times(1)).getUserById(1L);
         verifyNoMoreInteractions(userService);
     }
+    @Test
+    void createUser_shouldReturnCreatedUser() throws Exception {
+        User user = new User("John", "john@example.com", "password");
+
+        when(userService.createUser(any(User.class))).thenReturn(user);
+
+        mockMvc.perform(post("/api/users")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(user)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.username").value("John"));
+
+        verify(userService, times(1)).createUser(any(User.class));
+        verifyNoMoreInteractions(userService);
+    }
 }

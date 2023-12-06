@@ -43,4 +43,13 @@ public class TestControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("Moderator Board."));
     }
 
+    @Test
+    @WithMockUser(roles = "ADMIN")
+    public void testAdminAccess() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/test/admin")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("Admin Board."));
+    }
+
 }

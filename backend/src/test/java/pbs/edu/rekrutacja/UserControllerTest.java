@@ -86,4 +86,22 @@ class UserControllerTest {
         verify(userService, times(1)).createUser(any(User.class));
         verifyNoMoreInteractions(userService);
     }
+
+    @Test
+    void updateUser_shouldReturnUpdatedUser() throws Exception {
+        User existingUser = new User("John", "john@example.com", "password");
+        User updatedUser = new User("UpdatedJohn", "john@example.com", "password");
+
+        when(userService.updateUser(anyLong(), any(User.class))).thenReturn(updatedUser);
+
+        mockMvc.perform(put("/api/users/1")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(updatedUser)))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.username").value("UpdatedJohn"));
+
+        verify(userService, times(1)).updateUser(anyLong(), any(User.class));
+        verifyNoMoreInteractions(userService);
+    }
 }

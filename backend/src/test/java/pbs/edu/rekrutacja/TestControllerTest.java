@@ -25,4 +25,13 @@ public class TestControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("Public Content."));
     }
 
+    @Test
+    @WithMockUser(username = "testUser", roles = "USER")
+    public void testUserAccess() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/test/user")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("User Content."));
+    }
+
 }

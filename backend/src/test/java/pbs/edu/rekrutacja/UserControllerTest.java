@@ -55,4 +55,19 @@ class UserControllerTest {
         verify(userService, times(1)).getAllUsers();
         verifyNoMoreInteractions(userService);
     }
+
+    @Test
+    void getUserById_shouldReturnUser() throws Exception {
+        User user = new User("John", "john@example.com", "password");
+
+        when(userService.getUserById(1L)).thenReturn(user);
+
+        mockMvc.perform(get("/api/users/1"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.username").value("John"));
+
+        verify(userService, times(1)).getUserById(1L);
+        verifyNoMoreInteractions(userService);
+    }
 }

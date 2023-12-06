@@ -34,4 +34,13 @@ public class TestControllerTest {
                 .andExpect(MockMvcResultMatchers.content().string("User Content."));
     }
 
+    @Test
+    @WithMockUser(username = "testuser", roles = "MODERATOR")
+    public void testModeratorAccess() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/test/mod")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("Moderator Board."));
+    }
+
 }

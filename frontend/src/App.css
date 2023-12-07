@@ -30,3 +30,52 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-info-img {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: block;
+  background-color: #f7f7f7;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu select {
+  margin-bottom: 8px;
+}
+
+.dropdown-menu .nav-item {
+  list-style: none;
+  margin: 0;
+  padding: 8px 16px;
+}

@@ -201,6 +201,7 @@ const BoardAdmin = () => {
                   <th scope="col">Numer</th>
                   <th scope="col">Imię</th>
                   <th scope="col">Nazwisko</th>
+                  <th scope="col">Nazwa użytkownika</th>
                   <th scope="col">Adres e-mail</th>
                   <th scope="col">Adres</th>
                   <th scope="col">Miasto</th>
@@ -216,6 +217,7 @@ const BoardAdmin = () => {
                       <td>{index + 1}</td>
                       <td>{user.firstName}</td>
                       <td>{user.lastName}</td>
+                      <td>{user.username}</td>
                       <td>{user.email}</td>
                       <td>{user.address}</td>
                       <td>{user.city}</td>

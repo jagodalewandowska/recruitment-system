@@ -32,12 +32,10 @@ public class User {
   @Size(max = 120)
   private String password;
 
-  @NotBlank(message = "may not be blank")
-  @Column(name = "first_name", nullable = false)
+  @Column(name = "first_name")
   private String firstName;
 
-  @NotBlank(message = "may not be blank")
-  @Column(name = "last_name", nullable = false)
+  @Column(name = "last_name")
   private String lastName;
 
   @Size(max = 255)

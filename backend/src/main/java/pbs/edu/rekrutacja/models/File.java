@@ -2,22 +2,16 @@ package pbs.edu.rekrutacja.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Builder
 @Entity
 @Data
-//@AllArgsConstructor
-//@NoArgsConstructor
 @Table(name = "files")
 public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="file_id")
-    private Integer fileId;
+    private Long fileId;
 
     @Column(name = "name")
     private String name;
@@ -27,14 +21,10 @@ public class File {
 
     @ManyToOne
     @JsonIgnoreProperties({"users"})
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "user_id")
     private User user;
 
-    public File() {
-
-    }
-
-    public File(Integer fileId, String name, String url, User user) {
+    public File(Long fileId, String name, String url, User user) {
         super();
         this.fileId = fileId;
         this.name = name;
@@ -51,5 +41,9 @@ public class File {
         this.name = name;
         this.url = url;
         this.user = user;
+    }
+
+    public File() {
+
     }
 }

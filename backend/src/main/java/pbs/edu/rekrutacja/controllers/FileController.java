@@ -35,14 +35,14 @@ public class FileController {
     }
 
     @GetMapping("/{fileId}")
-    ResponseEntity<File> getFileById(@PathVariable Integer fileId) {
+    ResponseEntity<File> getFileById(@PathVariable Long fileId) {
         System.out.println("Get files!");
         return ResponseEntity.of(fileService.getFile(fileId));
     }
 
-    @GetMapping("/email={email}")
-    public Page<File> getFilesByEmail(@PathVariable String email, Pageable pageable) {
-        return fileRepository.findByUserEmail(email, pageable);
+    @GetMapping("/user_id={user_id}")
+    public Page<File> getFilesByUserId(@PathVariable Long user_id, Pageable pageable) {
+        return fileRepository.findFilesByUserId(user_id, pageable);
     }
 
     @PostMapping
@@ -54,7 +54,7 @@ public class FileController {
     }
 
     @DeleteMapping(path = "/{fileId}")
-    public ResponseEntity<Void> deleteFile(@PathVariable Integer fileId) {
+    public ResponseEntity<Void> deleteFile(@PathVariable Long fileId) {
         return fileService.getFile(fileId).map(p -> {
             fileService.deleteFile(fileId);
             return new ResponseEntity<Void> (HttpStatus.OK);

@@ -10,11 +10,12 @@ import pbs.edu.rekrutacja.models.User;
 
 import java.util.List;
 
-public interface FileRepository extends JpaRepository<File, Integer> {
-    @Query("SELECT f FROM File f WHERE f.user.email = :email")
-    Page<File> findFileUsera(@Param("email") String email, Pageable pageable);
-    @Query("SELECT f FROM File f WHERE f.user.email = :email")
-    List<File> findFileUsera(@Param("email") String email);
-    Page<File> findByUserEmail(String email, Pageable pageable);
+public interface FileRepository extends JpaRepository<File, Long> {
+    @Query("SELECT f FROM File f WHERE f.user.user_id = :user_id")
+    Page<File> findFilesByUserId(@Param("user_id") Long user_id, Pageable pageable);
+
+    @Query("SELECT f FROM File f WHERE f.user.user_id = :user_id")
+    List<File> findFilesByUserId(@Param("user_id") Long user_id);
+
     Page<File> findByUser(User user, Pageable pageable);
 }

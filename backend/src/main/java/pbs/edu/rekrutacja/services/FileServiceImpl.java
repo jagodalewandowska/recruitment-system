@@ -22,7 +22,7 @@ public class FileServiceImpl implements FileService {
     public Page<File> getFiles(Pageable pageable) { return fileRepository.findAll(pageable); }
 
     @Override
-    public Optional<File> getFile(Integer fileId) { return fileRepository.findById(fileId); }
+    public Optional<File> getFile(Long fileId) { return fileRepository.findById(fileId); }
 
     @Override
     public File setFile(@NotNull File file) {
@@ -39,5 +39,5 @@ public class FileServiceImpl implements FileService {
 
     @Override
     @Transactional
-    public void deleteFile(Integer fileId) { fileRepository.deleteById(fileId); }
+    public void deleteFile(Long fileId) { fileRepository.deleteById(fileId); }
 }

@@ -10,10 +10,10 @@ import java.util.Optional;
 public interface FileService {
     Page<File> getFiles(Pageable pageable);
 
-    Optional<File> getFile(Integer fileId);
+    Optional<File> getFile(Long fileId);
 
     File setFile(File file);
 
     @Transactional
-    void deleteFile(Integer fileId);
+    void deleteFile(Long fileId);
 }

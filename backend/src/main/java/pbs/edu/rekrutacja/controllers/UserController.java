@@ -32,8 +32,10 @@ public class UserController {
 
     @PutMapping("/{userId}")
     public User updateUser(@PathVariable Long userId, @RequestBody User newUser) {
+        System.out.println("Received PUT request for user update. User ID: " + userId);
         return userService.updateUser(userId, newUser);
     }
+
 
     @DeleteMapping("/{userId}")
     public void deleteUser(@PathVariable Long userId) {

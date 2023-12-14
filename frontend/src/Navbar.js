@@ -35,7 +35,7 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                 {showAdminBoard && (
                     <li className="nav-item">
                         <Link to={"/admin"} className="nav-link">
-                            Panel administratora
+                            Zarządzaj kandydatami
                         </Link>
                     </li>
                 )}

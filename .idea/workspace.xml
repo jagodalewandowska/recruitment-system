@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Npm install">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Offers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/css/Offers.css" afterDir="false" />
+    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Adding, editing and deleting offers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/BoardAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BoardAdmin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +134,7 @@
       <workItem from="1702401172697" duration="770000" />
       <workItem from="1702418643898" duration="8000" />
       <workItem from="1702490836489" duration="56000" />
-      <workItem from="1702545222048" duration="2964000" />
+      <workItem from="1702545222048" duration="12249000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1700583498570</created>
@@ -249,7 +248,21 @@
       <option name="project" value="LOCAL" />
       <updated>1702401237788</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="OffersManagement tab">
+      <created>1702548222882</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1702548222882</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Adding, editing and deleting offers">
+      <created>1702548243170</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1702548243170</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +297,8 @@
     <MESSAGE value="Dockerfile updates" />
     <MESSAGE value="workspace" />
     <MESSAGE value="Npm install" />
-    <option name="LAST_COMMIT_MESSAGE" value="Npm install" />
+    <MESSAGE value="OffersManagement tab" />
+    <MESSAGE value="Adding, editing and deleting offers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding, editing and deleting offers" />
   </component>
 </project>

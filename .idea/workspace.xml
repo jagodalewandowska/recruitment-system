@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Dockerfile updates">
+    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Npm install">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Offers.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/css/Offers.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +80,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.BackendApplicationTests">
+  <component name="RunManager" selected="Spring Boot.BackendApplication">
     <configuration name="BackendApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <extension name="coverage">
@@ -125,6 +132,10 @@
       <workItem from="1701641677969" duration="13000" />
       <workItem from="1701760667147" duration="875000" />
       <workItem from="1701811694354" duration="822000" />
+      <workItem from="1702401172697" duration="770000" />
+      <workItem from="1702418643898" duration="8000" />
+      <workItem from="1702490836489" duration="56000" />
+      <workItem from="1702545222048" duration="2964000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1700583498570</created>
@@ -231,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701761532273</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="workspace">
+      <created>1702401237788</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1702401237788</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,6 +282,8 @@
     <MESSAGE value="Dockerfile moved" />
     <MESSAGE value="docker-compose healthcheck &amp; postgres version" />
     <MESSAGE value="Dockerfile updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile updates" />
+    <MESSAGE value="workspace" />
+    <MESSAGE value="Npm install" />
+    <option name="LAST_COMMIT_MESSAGE" value="Npm install" />
   </component>
 </project>

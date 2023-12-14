@@ -40,10 +40,18 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                     </li>
                 )}
 
-                {currentUser && (
+                {/*{currentUser && (*/}
+                {/*    <li className="nav-item">*/}
+                {/*        <Link to={"/user"} className="nav-link">*/}
+                {/*            Panel użytkownika*/}
+                {/*        </Link>*/}
+                {/*    </li>*/}
+                {/*)}*/}
+
+                {showAdminBoard && (
                     <li className="nav-item">
-                        <Link to={"/offers"} className="nav-link">
-                            Oferty pracy
+                        <Link to={"/offersManagement"} className="nav-link">
+                            Zarządzaj ofertami pracy
                         </Link>
                     </li>
                 )}

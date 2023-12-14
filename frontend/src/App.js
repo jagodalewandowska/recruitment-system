@@ -17,6 +17,7 @@ import Navbar from "./Navbar";
 import EventBus from "./common/EventBus";
 import FileDrop from "./components/FileService";
 import FileService from "./components/FileService";
+import Offers from "./components/Offers";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -64,7 +65,8 @@ const App = () => {
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/profile" element={<Profile/>} />
-          <Route path="/offers" element={<BoardUser/>} />
+          <Route path="/user" element={<BoardUser/>} />
+          <Route path="/offersManagement" element={<Offers/>} />
           <Route path="/mod" element={<BoardModerator/>} />
           <Route path="/admin" element={<BoardAdmin/>} />
           <Route path="/fileservice" element={<FileService/>} />

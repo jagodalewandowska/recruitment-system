@@ -12,7 +12,7 @@ public interface FileService {
 
     Optional<File> getFile(Long fileId);
 
-    File setFile(File file);
+    File setFile(File file, Long userId);
 
     @Transactional
     void deleteFile(Long fileId);

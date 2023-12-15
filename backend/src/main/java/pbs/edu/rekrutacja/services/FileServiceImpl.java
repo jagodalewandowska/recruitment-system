@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import pbs.edu.rekrutacja.models.File;
+import pbs.edu.rekrutacja.models.User;
 import pbs.edu.rekrutacja.repository.FileRepository;
 
 import java.util.Optional;
@@ -14,9 +15,12 @@ import java.util.Optional;
 public class FileServiceImpl implements FileService {
 
     private FileRepository fileRepository;
+    private UserService userService;
 
-    public FileServiceImpl(FileRepository fileRepository) { this.fileRepository = fileRepository; }
-
+    public FileServiceImpl(FileRepository fileRepository, UserService userService) {
+        this.fileRepository = fileRepository;
+        this.userService = userService;
+    }
 
     @Override
     public Page<File> getFiles(Pageable pageable) { return fileRepository.findAll(pageable); }
@@ -25,13 +29,14 @@ public class FileServiceImpl implements FileService {
     public Optional<File> getFile(Long fileId) { return fileRepository.findById(fileId); }
 
     @Override
-    public File setFile(@NotNull File file) {
+    public File setFile(@NotNull File file, Long userId) {
+        User user = userService.getUserById(userId);
         if (file.getName() != null) {
-            File fileToSave = new File(file.getName(), file.getUrl(), file.getUser());
+            File fileToSave = new File(file.getName(), file.getUrl(), user);
             return fileRepository.save(fileToSave);
         } else {
             String newName = file.getUrl().replace("/uploads/", "");
-            File fileToSave = new File(newName, file.getUrl(), file.getUser());
+            File fileToSave = new File(newName, file.getUrl(), user);
 
             return fileRepository.save(fileToSave);
         }

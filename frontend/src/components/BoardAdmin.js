@@ -184,7 +184,7 @@ const BoardAdmin = () => {
         <h3 className="mb-4">Zarządzaj kandydatami</h3>
 
         {users.length === 0 && (
-            <p>Loading users...</p>
+            <p>Brak użytkowników</p>
         )}
 
         <button onClick={handleAddModalOpen} className="btn btn-light btn-block">

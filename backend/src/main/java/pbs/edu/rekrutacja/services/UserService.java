@@ -39,11 +39,11 @@ public class UserService {
         String encodedPassword = passwordEncoder.encode(user.getPassword());
         user.setPassword(encodedPassword);
 
-        Set<Role> roles = new HashSet<>();
-        roles.add(new Role(ERole.ROLE_USER));
-        roleRepository.saveAll(roles);
+//        Set<Role> roles = new HashSet<>();
+//        roles.add(new Role(ERole.ROLE_USER));
+//        roleRepository.saveAll(roles);
 
-        user.setRoles(roles);
+//        user.setRoles(roles);
 
         return userRepository.save(user);
     }

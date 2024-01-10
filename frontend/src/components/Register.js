@@ -1,178 +1,190 @@
-import React, { useState, useRef } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
-import './css/Login.css';
-
+import React, { useState } from "react";
 import AuthService from "../services/auth.service";
-
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Pole wymagane.
-      </div>
-    );
-  }
-};
-
-const validEmail = (value) => {
-  if (!isEmail(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        To nie jest poprawna wartość e-mail.
-      </div>
-    );
-  }
-};
-
-const vusername = (value) => {
-  if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Nazwa użytkownika powinna się mieścić między 3, a 20 znakami.
-      </div>
-    );
-  }
-};
-
-const vpassword = (value) => {
-  if (value.length < 6 || value.length > 40) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        Hasło powinno się mieścić między 6, a 40 znakami.
-      </div>
-    );
-  }
-};
+import axios from "axios";
+import authHeader from "../services/auth-header";
 
 const Register = () => {
-  const form = useRef();
-  const checkBtn = useRef();
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [successful, setSuccessful] = useState(false);
-  const [message, setMessage] = useState("");
+  const [registerUser, setRegisterUser] = useState({
+    username: "",
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    city: "",
+    postalCode: "",
+    experience: "",
+    phoneNumber: ""
+  });
 
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleRegisterInputChange = (e) => {
+    const { name, value } = e.target;
+    setRegisterUser({ ...registerUser, [name]: value });
   };
 
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
-
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
-
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-
-    setMessage("");
-    setSuccessful(false);
-
-    form.current.validateAll();
-
-    if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(username, email, password).then(
-        (response) => {
-          setMessage(response.data.message);
-          setSuccessful(true);
-        },
-        (error) => {
-          const resMessage =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-
-          setMessage(resMessage);
-          setSuccessful(false);
-        }
-      );
+    try {
+      await axios.post("http://localhost:8082/api/auth/signup", registerUser, { headers: authHeader() });
+      setRegisterUser({
+        username: "",
+        email: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        postalCode: "",
+        experience: "",
+        phoneNumber: "",
+        roles: ""
+      });
+      setSuccessMessage("Zarejestrowano pomyślnie");
+    } catch (error) {
+      console.error(`Error adding user: ${error}`);
     }
   };
 
-  return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
 
-        <Form onSubmit={handleRegister} ref={form}>
-          {!successful && (
-            <div>
-              <div className="form-group">
-                <label htmlFor="username">Nazwa użytkownika</label>
-                <Input
+  return (
+      <div className="col-md-12">
+        <div className="card card-container">
+          {successMessage && (
+              <div className="alert alert-success" role="alert">
+                {successMessage}
+              </div>
+          )}
+          <form onSubmit={handleRegister}>
+            <div className="form-group">
+              <label htmlFor="username">Nazwa użytkownika</label>
+              <input
                   type="text"
                   className="form-control"
                   name="username"
-                  value={username}
-                  onChange={onChangeUsername}
-                  validations={[required, vusername]}
-                />
-              </div>
+                  value={registerUser.username}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <Input
-                  type="text"
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                  type="email"
                   className="form-control"
                   name="email"
-                  value={email}
-                  onChange={onChangeEmail}
-                  validations={[required, validEmail]}
-                />
-              </div>
+                  value={registerUser.email}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
 
-              <div className="form-group">
-                <label htmlFor="password">Hasło</label>
-                <Input
+            <div className="form-group">
+              <label htmlFor="password">Hasło</label>
+              <input
                   type="password"
                   className="form-control"
                   name="password"
-                  value={password}
-                  onChange={onChangePassword}
-                  validations={[required, vpassword]}
-                />
-              </div>
-
-              <div className="form-group">
-                <button className="btn btn-red btn-block">
-                  Zarejestruj się
-                </button>
-              </div>
+                  value={registerUser.password}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
             </div>
-          )}
 
-          {message && (
             <div className="form-group">
-              <div
-                className={
-                  successful ? "alert alert-success" : "alert alert-danger"
-                }
-                role="alert"
-              >
-                {message}
-              </div>
+              <label htmlFor="firstName">Imię</label>
+              <input
+                  type="text"
+                  className="form-control"
+                  name="firstName"
+                  value={registerUser.firstName}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
             </div>
-          )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+
+            <div className="form-group">
+              <label htmlFor="lastName">Nazwisko</label>
+              <input
+                  type="text"
+                  className="form-control"
+                  name="lastName"
+                  value={registerUser.lastName}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="address">Adres</label>
+              <input
+                  type="text"
+                  className="form-control"
+                  name="address"
+                  value={registerUser.address}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="city">Miasto</label>
+              <input
+                  type="text"
+                  className="form-control"
+                  name="city"
+                  value={registerUser.city}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="postalCode">Kod pocztowy</label>
+              <input
+                  type="text"
+                  className="form-control"
+                  name="postalCode"
+                  value={registerUser.postalCode}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="experience">Doświadczenie</label>
+              <textarea
+                  className="form-control"
+                  name="experience"
+                  value={registerUser.experience}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="phoneNumber">Numer telefonu</label>
+              <input
+                  type="text"
+                  className="form-control"
+                  name="phoneNumber"
+                  value={registerUser.phoneNumber}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <button type="submit" className="btn btn-red btn-block">
+                Zarejestruj się
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
   );
 };
 

@@ -9,6 +9,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import AddJob from "./components/AddJob";
 import BoardUser from "./components/BoardUser";
 import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
@@ -86,6 +87,11 @@ const App = () => {
         {currentUser ? (
           <div className="navbar-nav ml-auto">
             <li className="nav-item">
+              <Link to={"/addJob"} className="nav-link">
+                Dodaj ogłoszenie
+              </Link>
+            </li>
+            <li className="nav-item">
               <Link to={"/profile"} className="nav-link">
                 {currentUser.username}
               </Link>
@@ -123,6 +129,7 @@ const App = () => {
           <Route path="/offers" element={<BoardUser/>} />
           <Route path="/mod" element={<BoardModerator/>} />
           <Route path="/admin" element={<BoardAdmin/>} />
+          <Route path="/addJob" element={<AddJob/>} />
 
         </Routes>
       </div>

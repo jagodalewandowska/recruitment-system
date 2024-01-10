@@ -28,7 +28,8 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8082/api/auth/signup", registerUser, { headers: authHeader() });
+      await axios.post("http://localhost:8082/api/users", registerUser, { headers: authHeader() });
+      console.log(registerUser);
       setRegisterUser({
         username: "",
         email: "",
@@ -42,6 +43,7 @@ const Register = () => {
         phoneNumber: "",
         roles: ""
       });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       setSuccessMessage("Zarejestrowano pomyślnie");
     } catch (error) {
       console.error(`Error adding user: ${error}`);

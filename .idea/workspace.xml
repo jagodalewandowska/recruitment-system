@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="backend-0.0.1-SNAPSHOT.jar v2">
+    <list default="true" id="5fc66288-9b71-4f07-9571-e4b4792fdde3" name="Changes" comment="Registering works, won't save the userdata just yet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/pbs/edu/rekrutacja/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/BoardAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/BoardAdmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Register.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +139,7 @@
       <workItem from="1704699188453" duration="18000" />
       <workItem from="1704743058040" duration="27000" />
       <workItem from="1704908181594" duration="3498000" />
-      <workItem from="1704912151396" duration="1520000" />
+      <workItem from="1704912151396" duration="1842000" />
     </task>
     <task id="LOCAL-00001" summary="Auth">
       <created>1700583498570</created>
@@ -298,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702565902888</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Registering works, won't save the userdata just yet">
+      <created>1704913761099</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704913761099</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,6 +343,7 @@
     <MESSAGE value="Some basic changes &amp; register todo" />
     <MESSAGE value="backend-0.0.1-SNAPSHOT.jar" />
     <MESSAGE value="backend-0.0.1-SNAPSHOT.jar v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="backend-0.0.1-SNAPSHOT.jar v2" />
+    <MESSAGE value="Registering works, won't save the userdata just yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registering works, won't save the userdata just yet" />
   </component>
 </project>

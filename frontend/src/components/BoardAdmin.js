@@ -26,10 +26,33 @@ const BoardAdmin = () => {
     phoneNumber: ""
   });
   const [editingUser, setEditingUser] = useState(null);
-
+  const [sortField, setSortField] = useState("lastName");
+  const [sortOrder, setSortOrder] = useState("asc");
   const handleAddModalOpen = () => {
     setAddModalOpen(true);
   };
+
+  const handleSort = (field) => {
+    if (field === sortField) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortField(field);
+      setSortOrder("asc");
+    }
+  };
+
+  const sortedUsers = [...users].sort((a, b) => {
+    const valueA = a[sortField].toLowerCase();
+    const valueB = b[sortField].toLowerCase();
+
+    if (valueA < valueB) {
+      return sortOrder === "asc" ? -1 : 1;
+    } else if (valueA > valueB) {
+      return sortOrder === "asc" ? 1 : -1;
+    } else {
+      return 0;
+    }
+  });
 
   const handleAddModalClose = () => {
     setAddModalOpen(false);
@@ -181,7 +204,7 @@ const BoardAdmin = () => {
 
   return (
       <div className="container">
-        <h3 className="mb-4">Zarządzaj kandydatami</h3>
+        {/*<h3 className="mb-4">Zarządzaj kandydatami</h3>*/}
 
         {users.length === 0 && (
             <p>Brak użytkowników</p>
@@ -198,21 +221,41 @@ const BoardAdmin = () => {
               <table className="table">
                 <thead>
                 <tr>
-                  <th scope="col">Numer</th>
-                  <th scope="col">Imię</th>
-                  <th scope="col">Nazwisko</th>
-                  <th scope="col">Nazwa użytkownika</th>
-                  <th scope="col">Adres e-mail</th>
-                  <th scope="col">Adres</th>
-                  <th scope="col">Miasto</th>
-                  <th scope="col">Kod pocztowy</th>
-                  <th scope="col">Doświadczenie</th>
-                  <th scope="col">Numer telefonu</th>
+                  <th scope="col">
+                    Numer
+                  </th>
+                  <th scope="col" onClick={() => handleSort("firstName")}>
+                    Imię {sortField === "firstName" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("lastName")}>
+                    Nazwisko {sortField === "lastName" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("username")}>
+                    Nazwa użytkownika {sortField === "username" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("email")}>
+                    Adres e-mail {sortField === "email" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("address")}>
+                    Adres {sortField === "address" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("city")}>
+                    Miasto {sortField === "city" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("postalCode")}>
+                    Kod pocztowy {sortField === "postalCode" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("experience")}>
+                    Doświadczenie {sortField === "experience" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
+                  <th scope="col" onClick={() => handleSort("phoneNumber")}>
+                    Numer telefonu {sortField === "phoneNumber" && (sortOrder === "asc" ? "▲" : "▼")}
+                  </th>
                   <th scope="col">Akcje</th>
                 </tr>
                 </thead>
                 <tbody>
-                {users.map((user, index) => (
+                {sortedUsers.map((user, index) => (
                     <tr key={user.id}>
                       <td>{index + 1}</td>
                       <td>{user.firstName}</td>
@@ -239,6 +282,7 @@ const BoardAdmin = () => {
                 </tbody>
               </table>
             </div>
+
         )}
 
         {/* Modal for Adding User */}

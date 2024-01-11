@@ -9,6 +9,7 @@ import pbs.edu.rekrutacja.models.File;
 import pbs.edu.rekrutacja.models.User;
 import pbs.edu.rekrutacja.repository.FileRepository;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -31,16 +32,17 @@ public class FileServiceImpl implements FileService {
     @Override
     public File setFile(@NotNull File file, Long userId) {
         User user = userService.getUserById(userId);
-        if (file.getName() != null) {
-            File fileToSave = new File(file.getName(), file.getUrl(), user);
+        if (file.getName() != null || file.getUrl() != null) {
+            String newName = Objects.requireNonNullElse(file.getUrl(), "defaultName").replace("/uploads/", "");
+            File fileToSave = new File(newName, file.getUrl(), user);
             return fileRepository.save(fileToSave);
         } else {
-            String newName = file.getUrl().replace("/uploads/", "");
-            File fileToSave = new File(newName, file.getUrl(), user);
-
+            String defaultName = "defaultName";
+            File fileToSave = new File(defaultName, "", user);
             return fileRepository.save(fileToSave);
         }
     }
+
 
     @Override
     @Transactional

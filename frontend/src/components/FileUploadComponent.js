@@ -41,18 +41,30 @@ const FileUploadComponent = () => {
     };
 
     return (
-        <div>
-            <div>
-                <input type="file" onChange={handleFileChange} />
-                <button onClick={handleFileUpload}>Prześlij plik</button>
+        <div className="container mt-4">
+            <div className="row">
+                <div className="col-md-6 mb-3">
+                    <input type="file" className="form-control" onChange={handleFileChange} />
+                </div>
+                <div className="col-md-6 mb-3">
+                    <button className="btn btn-primary" onClick={handleFileUpload}>
+                        Prześlij plik
+                    </button>
+                </div>
             </div>
-            <div>
-                <button onClick={handleGetFileList}>Pobierz listę plików</button>
-                <ul>
-                    {fileList.map((file, index) => (
-                        <li key={index}>{file.fileName}</li>
-                    ))}
-                </ul>
+            <div className="row">
+                <div className="col-md-12 mb-3">
+                    <button className="btn btn-secondary" onClick={handleGetFileList}>
+                        Pobierz listę plików
+                    </button>
+                    <ul className="list-group">
+                        {fileList.map((file, index) => (
+                            <li key={index} className="list-group-item">
+                                {file.fileName}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
             <div>{uploadStatus && <p>{uploadStatus}</p>}</div>
         </div>

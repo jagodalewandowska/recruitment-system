@@ -1,5 +1,6 @@
 // FilesService.js
 import axios from "axios";
+import authHeader from "../services/auth-header";
 
 const FilesService = {
     uploadFile: async (file, token) => {
@@ -8,12 +9,11 @@ const FilesService = {
             const formData = new FormData();
             formData.append("file", file);
 
-            const response = await axios.post("http://localhost:8082/api/files", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                    "Authorization": token, // Dodaj nagłówek Authorization z tokenem
-                },
-            });
+            const response =
+                await axios.post("http://localhost:8082/api/files",
+                    formData,
+                    { headers: { ...authHeader(), 'Content-Type': 'application/json' } }
+                );
 
             return response.data;
         } catch (error) {

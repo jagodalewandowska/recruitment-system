@@ -77,6 +77,7 @@ public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
                   .requestMatchers("/api/jobs/**").permitAll()
 //                  .requestMatchers("/api/users/**").hasAuthority(String.valueOf(ROLE_ADMIN))
                   .requestMatchers("/api/users/**").permitAll()
+                  .requestMatchers("/api/files/**").permitAll()
                   .anyRequest().authenticated()
         );
 

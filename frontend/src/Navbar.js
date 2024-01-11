@@ -79,7 +79,7 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                                 <Link to={"/profile"} className="nav-link">
                                     Profile
                                 </Link>
-                                <Link to={"/fileservice"} className="nav-link">
+                                <Link to={"/fileUploadComponent"} className="nav-link">
                                     Moje pliki
                                 </Link>
                                 <a href="/login" className="nav-link" onClick={logOut}>

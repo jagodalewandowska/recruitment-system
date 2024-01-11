@@ -1,0 +1,24 @@
+.file-drop-area {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px dashed #cccccc;
+    text-align: center;
+}
+
+.file-drop-area.dragging {
+    border-color: #4caf50;
+}
+
+.file-drop-area h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.file-drop-area p {
+    margin: 5px 0;
+}
+
+.file-drop-area input {
+    display: none;
+}

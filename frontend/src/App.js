@@ -15,8 +15,7 @@ import BoardAdmin from "./components/BoardAdmin";
 import Navbar from "./Navbar";
 
 import EventBus from "./common/EventBus";
-import FileDrop from "./components/FileService";
-import FileService from "./components/FileService";
+import FileUploadComponent from "./components/FileUploadComponent";
 import Offers from "./components/Offers";
 
 const App = () => {
@@ -69,8 +68,7 @@ const App = () => {
           <Route path="/offersManagement" element={<Offers/>} />
           <Route path="/mod" element={<BoardModerator/>} />
           <Route path="/admin" element={<BoardAdmin/>} />
-          <Route path="/fileservice" element={<FileService/>} />
-
+          <Route path="/fileUploadComponent" element={<FileUploadComponent/>} />
         </Routes>
       </div>
 

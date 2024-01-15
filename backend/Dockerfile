@@ -1,5 +1,4 @@
-FROM openjdk:11
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} backend-0.0.1-SNAPSHOT.jar
-EXPOSE 8082
-ENTRYPOINT ["java","-jar","/backend-0.0.1-SNAPSHOT.jar"]
+FROM openjdk:17-jdk
+VOLUME /tmp
+COPY backend-0.0.1-SNAPSHOT.jar /app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

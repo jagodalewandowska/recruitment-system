@@ -1,5 +1,5 @@
 FROM node:14.9
-WORKDIR /src/app
+WORKDIR /frontend
 COPY package*.json ./
 RUN npm install
 COPY . .

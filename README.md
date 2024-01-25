@@ -2,6 +2,9 @@
 
 Aplikacja na przedmiot Programowanie Zwinne do rekrutacji pracowników.
 
+User stories:
+https://docs.google.com/document/d/114SIXdBXFKqgOiWq2rVUsqF1XfpK0lYdf3MRqXB4-_0/edit
+
 1. ### PostgreSQL
    - Otwórz pgAdmin,
    - zaloguj się (u: ``postgres``, h: ``politechnika``), chyba, że macie inaczej skonfigurowane

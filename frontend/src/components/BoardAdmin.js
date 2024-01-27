@@ -4,6 +4,8 @@ import EventBus from "../common/EventBus";
 import axios from 'axios';
 import authHeader from "../services/auth-header";
 import Modal from "react-modal";
+import { jsPDF } from "jspdf";
+import autoTable from 'jspdf-autotable'
 
 Modal.setAppElement('#root'); // Set the app element here
 
@@ -202,6 +204,42 @@ const BoardAdmin = () => {
     });
   };
 
+  const generatePdf = () => {
+    const doc = new jsPDF();
+    doc.setFont("Arial", "normal");
+    doc.setFontSize(12);
+
+    doc.text("Lista kandydatów w systemie", 20, 20);
+
+    const tableData = sortedUsers.map((user) => [user.firstName, user.lastName, user.username, user.email, user.address, user.city, user.postalCode, user.phoneNumber]);
+    const tableHeaders = ["Imie", "Nazwisko", "Username", "Adres e-mail", "Adres", "Miasto", "Kod pocztowy", "Numer telefonu"];
+
+    autoTable(doc, {
+      head: [tableHeaders],
+      body: tableData,
+      theme: 'grid',
+      margin: { top: 0 },
+      styles: { font: 'Arial', fontSize: 10 },
+      columnStyles: { 0: { cellWidth: 25 } },
+      startY: 30,
+    });
+
+    doc.setFontSize(12);
+    doc.setFont("bold");
+
+    doc.setDrawColor(0);
+    doc.setLineWidth(0.1);
+
+    doc.setFontSize(10);
+    doc.setFont("normal");
+
+    const pdfBlob = doc.output("blob");
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+
+    window.open(pdfUrl, "_blank");
+  };
+
+
   return (
       <div className="container">
         {/*<h3 className="mb-4">Zarządzaj kandydatami</h3>*/}
@@ -210,20 +248,25 @@ const BoardAdmin = () => {
             <p>Brak użytkowników</p>
         )}
 
-        <button onClick={handleAddModalOpen} className="btn btn-light btn-block">
+        <button onClick={handleAddModalOpen} className="btn btn-info btn-block">
           Dodaj użytkownika
+        </button>
+
+        <button onClick={generatePdf} className="btn btn-light btn-block">
+          <i className="fas fa-file-export"></i> Eksportuj PDF
         </button>
 
         <br></br>
 
         {users.length > 0 && (
             <div className="table-responsive">
+
               <table className="table">
                 <thead>
                 <tr>
-                  <th scope="col">
-                    Numer
-                  </th>
+                  {/*<th scope="col">*/}
+                  {/*  Numer*/}
+                  {/*</th>*/}
                   <th scope="col" onClick={() => handleSort("firstName")}>
                     Imię {sortField === "firstName" && (sortOrder === "asc" ? "▲" : "▼")}
                   </th>
@@ -231,7 +274,7 @@ const BoardAdmin = () => {
                     Nazwisko {sortField === "lastName" && (sortOrder === "asc" ? "▲" : "▼")}
                   </th>
                   <th scope="col" onClick={() => handleSort("username")}>
-                    Nazwa użytkownika {sortField === "username" && (sortOrder === "asc" ? "▲" : "▼")}
+                    Username {sortField === "username" && (sortOrder === "asc" ? "▲" : "▼")}
                   </th>
                   <th scope="col" onClick={() => handleSort("email")}>
                     Adres e-mail {sortField === "email" && (sortOrder === "asc" ? "▲" : "▼")}
@@ -245,9 +288,9 @@ const BoardAdmin = () => {
                   <th scope="col" onClick={() => handleSort("postalCode")}>
                     Kod pocztowy {sortField === "postalCode" && (sortOrder === "asc" ? "▲" : "▼")}
                   </th>
-                  <th scope="col" onClick={() => handleSort("experience")}>
-                    Doświadczenie {sortField === "experience" && (sortOrder === "asc" ? "▲" : "▼")}
-                  </th>
+                  {/*<th scope="col" onClick={() => handleSort("experience")}>*/}
+                  {/*  Doświadczenie {sortField === "experience" && (sortOrder === "asc" ? "▲" : "▼")}*/}
+                  {/*</th>*/}
                   <th scope="col" onClick={() => handleSort("phoneNumber")}>
                     Numer telefonu {sortField === "phoneNumber" && (sortOrder === "asc" ? "▲" : "▼")}
                   </th>
@@ -257,7 +300,7 @@ const BoardAdmin = () => {
                 <tbody>
                 {sortedUsers.map((user, index) => (
                     <tr key={user.id}>
-                      <td>{index + 1}</td>
+                      {/*<td>{index + 1}</td>*/}
                       <td>{user.firstName}</td>
                       <td>{user.lastName}</td>
                       <td>{user.username}</td>
@@ -265,7 +308,7 @@ const BoardAdmin = () => {
                       <td>{user.address}</td>
                       <td>{user.city}</td>
                       <td>{user.postalCode}</td>
-                      <td>{user.experience}</td>
+                      {/*<td>{user.experience}</td>*/}
                       <td>{user.phoneNumber}</td>
                       <td>
                         <button onClick={() => { setEditingUser(user); setEditModalOpen(true); }}

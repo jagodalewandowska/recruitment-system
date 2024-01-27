@@ -35,14 +35,14 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                 {showAdminBoard && (
                     <li className="nav-item">
                         <Link to={"/admin"} className="nav-link">
-                            Zarządzaj kandydatami
+                            Kandydaci
                         </Link>
                     </li>
                 )}
 
-                {currentUser && (
+                {currentUser && !showAdminBoard && (
                     <li className="nav-item">
-                        <Link to={"/user"} className="nav-link">
+                        <Link to={"/apply"} className="nav-link">
                             Panel użytkownika
                         </Link>
                     </li>
@@ -51,10 +51,19 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                 {showAdminBoard && (
                     <li className="nav-item">
                         <Link to={"/offersManagement"} className="nav-link">
-                            Zarządzaj ofertami pracy
+                            Oferty pracy
                         </Link>
                     </li>
                 )}
+
+
+                {/*{currentUser && (*/}
+                {/*    <li className="nav-item">*/}
+                {/*        <Link to={"/user"} className="nav-link">*/}
+                {/*            Panel użytkownika*/}
+                {/*        </Link>*/}
+                {/*    </li>*/}
+                {/*)}*/}
             </div>
 
             <div className="navbar-nav ml-auto">
@@ -62,7 +71,7 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                     <div
                         className="dropdown"
                         onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                        onMouseLeve={handleMouseLeave}
                     >
                         <button className="dropdown-toggle" onMouseEnter={toggleDropdown}>
                             <div className="profile-info">

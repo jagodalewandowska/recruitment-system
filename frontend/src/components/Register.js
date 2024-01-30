@@ -9,6 +9,7 @@ const Register = () => {
     username: "",
     email: "",
     password: "",
+    passwordConfirm: "",
     firstName: "",
     lastName: "",
     address: "",
@@ -18,7 +19,9 @@ const Register = () => {
     phoneNumber: ""
   });
 
+
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleRegisterInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,12 +31,20 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      if (registerUser.password !== registerUser.passwordConfirm) {
+        console.error("Hasło i powtórzenie hasła nie są takie same.");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setErrorMessage("Hasło i powtórzenie hasła nie są takie same.");
+        return;
+      }
+
       await axios.post("http://localhost:8082/api/users", registerUser, { headers: authHeader() });
       console.log(registerUser);
       setRegisterUser({
         username: "",
         email: "",
         password: "",
+        passwordConfirm: "",
         firstName: "",
         lastName: "",
         address: "",
@@ -59,6 +70,12 @@ const Register = () => {
                 {successMessage}
               </div>
           )}
+          {errorMessage && (
+              <div className="alert alert-success" role="alert" style={{ backgroundColor: '#f8d7da', borderColor: '#f5c6cb', color: '#721c24' }}>
+                {errorMessage}
+              </div>
+          )}
+
           <form onSubmit={handleRegister}>
             <div className="form-group">
               <label htmlFor="username">Nazwa użytkownika</label>
@@ -91,6 +108,18 @@ const Register = () => {
                   className="form-control"
                   name="password"
                   value={registerUser.password}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="passwordConfirm">Powtórz hasło</label>
+              <input
+                  type="password"
+                  className="form-control"
+                  name="passwordConfirm"
+                  value={registerUser.passwordConfirm}
                   onChange={handleRegisterInputChange}
                   required
               />

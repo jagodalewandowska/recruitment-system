@@ -146,7 +146,7 @@ const BoardAdmin = () => {
 
     try {
       await axios.put(
-          `http://localhost:8082/api/users/${editingUser.id}`,
+          `http://localhost:8082/api/users/${editingUser.user_id}`,
           editingUser,
           { headers: { ...authHeader(), 'Content-Type': 'application/json' } }
       );
@@ -162,8 +162,9 @@ const BoardAdmin = () => {
 
 
   const handleDeleteUser = async () => {
+    console.log("Editing User Data:", editingUser);
     try {
-      await axios.delete(`http://localhost:8082/api/users/${editingUser.id}`, { headers: authHeader() });
+      await axios.delete(`http://localhost:8082/api/users/${editingUser.user_id}`, { headers: authHeader() });
       setDeleteModalOpen(false);
       setEditingUser(null);
       getUsers();

@@ -17,6 +17,7 @@ import EventBus from "./common/EventBus";
 import FileUploadComponent from "./components/FileUploadComponent";
 import Offers from "./components/Offers";
 import ApplicationList from "./components/ApplicationList";
+import FileUpload from "./components/FileUpload";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -69,6 +70,7 @@ const App = () => {
           <Route path="/admin" element={<BoardAdmin/>} />
           <Route path="/applications" element={<ApplicationList/>} />
           <Route path="/fileUploadComponent" element={<FileUploadComponent/>} />
+          <Route path="/fileUpload" element={<FileUpload/>} />
         </Routes>
       </div>
 

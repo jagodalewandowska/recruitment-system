@@ -6,6 +6,7 @@ import authHeader from "../services/auth-header";
 import Modal from "react-modal";
 import { jsPDF } from "jspdf";
 import autoTable from 'jspdf-autotable'
+import { CSVLink } from 'react-csv';
 
 Modal.setAppElement('#root'); // Set the app element here
 
@@ -30,6 +31,7 @@ const BoardAdmin = () => {
   const [editingUser, setEditingUser] = useState(null);
   const [sortField, setSortField] = useState("lastName");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [currentDateTime, setCurrentDateTime] = useState(null);
   const handleAddModalOpen = () => {
     setAddModalOpen(true);
   };
@@ -105,6 +107,7 @@ const BoardAdmin = () => {
     );
 
     getUsers();
+    fetchDateTime();
   }, []);
 
   const handleDeleteModalOpen = () => {
@@ -115,6 +118,17 @@ const BoardAdmin = () => {
     setDeleteModalOpen(false);
   };
 
+  const fetchDateTime = () => {
+    const now = new Date();
+    const options = {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    };
+    setCurrentDateTime(now.toLocaleString('pl-PL', options));
+  };
 
   const handleAddUser = async () => {
     console.log(newUser);
@@ -240,6 +254,21 @@ const BoardAdmin = () => {
     window.open(pdfUrl, "_blank");
   };
 
+  const generateCsvData = () => {
+    const csvData = sortedUsers.map((user) => ({
+      Imię: user.firstName,
+      Nazwisko: user.lastName,
+      Username: user.username,
+      "Adres e-mail": user.email,
+      Adres: user.address,
+      Miasto: user.city,
+      "Kod pocztowy": user.postalCode,
+      "Numer telefonu": user.phoneNumber,
+    }));
+
+    return csvData;
+  };
+
 
   return (
       <div className="container">
@@ -255,6 +284,25 @@ const BoardAdmin = () => {
 
         <button onClick={generatePdf} className="btn btn-light btn-block">
           <i className="fas fa-file-export"></i> Eksportuj PDF
+        </button>
+
+        <button className="btn btn-light btn-block">
+          <CSVLink
+              data={generateCsvData()}
+              headers={[
+                { label: "Imię", key: "Imię" },
+                { label: "Nazwisko", key: "Nazwisko" },
+                { label: "Username", key: "Username" },
+                { label: "Adres e-mail", key: "Adres e-mail" },
+                { label: "Adres", key: "Adres" },
+                { label: "Miasto", key: "Miasto" },
+                { label: "Kod pocztowy", key: "Kod pocztowy" },
+                { label: "Numer telefonu", key: "Numer telefonu" },
+              ]}
+              filename={"Uzytkownicy-" + currentDateTime + ".csv"}
+          >
+            Eksportuj CSV
+          </CSVLink>
         </button>
 
         <br></br>

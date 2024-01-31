@@ -218,9 +218,9 @@ const BoardAdmin = () => {
     autoTable(doc, {
       head: [tableHeaders],
       body: tableData,
-      theme: 'grid',
+      theme: 'striped',
       margin: { top: 0 },
-      styles: { font: 'Arial', fontSize: 10 },
+      styles: { font: 'Arial', fontSize: 8 },
       columnStyles: { 0: { cellWidth: 25 } },
       startY: 30,
     });
@@ -260,8 +260,7 @@ const BoardAdmin = () => {
         <br></br>
 
         {users.length > 0 && (
-            <div className="table-responsive">
-
+            <div className="table">
               <table className="table">
                 <thead>
                 <tr>

@@ -10,7 +10,6 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import BoardUser from "./components/BoardUser";
-import BoardModerator from "./components/BoardModerator";
 import BoardAdmin from "./components/BoardAdmin";
 import Navbar from "./Navbar";
 
@@ -67,7 +66,6 @@ const App = () => {
           <Route path="/profile" element={<Profile/>} />
           <Route path="/apply" element={<BoardUser/>} />
           <Route path="/offersManagement" element={<Offers/>} />
-          <Route path="/mod" element={<BoardModerator/>} />
           <Route path="/admin" element={<BoardAdmin/>} />
           <Route path="/applications" element={<ApplicationList/>} />
           <Route path="/fileUploadComponent" element={<FileUploadComponent/>} />

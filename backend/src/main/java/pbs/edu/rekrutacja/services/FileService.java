@@ -10,6 +10,8 @@ import pbs.edu.rekrutacja.models.File;
 import java.util.Optional;
 
 public interface FileService {
+    Page<File> getFilesByUser(Long userId, Pageable pageable);
+
     Page<File> getFiles(Pageable pageable);
 
     Optional<File> getFile(Long fileId);

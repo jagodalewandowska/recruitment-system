@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pbs.edu.rekrutacja.models.File;
 import pbs.edu.rekrutacja.models.User;
@@ -49,7 +50,7 @@ public class FileController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createFile(@Valid @RequestBody File file, @RequestHeader(name = "Authorization") String token) {
+    public ResponseEntity<Void> createFile(@Valid @RequestBody MultipartFile file, @RequestHeader(name = "Authorization") String token) {
         //Wyświetlenie Tokena aktualnie zalogowanego usera
         System.out.println("Token: " + token);
 

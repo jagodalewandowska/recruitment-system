@@ -62,8 +62,8 @@ const Register = () => {
       errors.firstName = "Imię jest wymagane";
     } else if (registerUser.firstName.length > 20) {
       errors.firstName = "Imię nie może być dłuższe niż 20 znaków";
-    } else if (registerUser.firstName.length < 4) {
-      errors.firstName = "Imię nie może być krótsze niż 4 znaki";
+    } else if (registerUser.firstName.length < 3) {
+      errors.firstName = "Imię nie może być krótsze niż 3 znaki";
     }
 
     if (!registerUser.lastName.trim()) {
@@ -92,9 +92,24 @@ const Register = () => {
       return;
     }
 
+    const { username, email } = registerUser;
+
     try {
+      const usersResponse = await axios.get("http://localhost:8082/api/users");
+      const allUsers = usersResponse.data;
+
+      const userExistsLocally = allUsers.some(
+          (user) => user.username === username || user.email === email
+      );
+
+      if (userExistsLocally) {
+        setErrorMessage("Użytkownik istnieje już w bazie danych.");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
       await axios.post("http://localhost:8082/api/users", registerUser, { headers: authHeader() });
-      console.log(registerUser);
+
       setRegisterUser({
         username: "",
         email: "",
@@ -109,11 +124,12 @@ const Register = () => {
         phoneNumber: "",
         roles: ""
       });
+
       window.scrollTo({ top: 0, behavior: "smooth" });
       setErrorMessage("");
       setSuccessMessage("Zarejestrowano pomyślnie");
     } catch (error) {
-      console.error(`Error adding user: ${error}`);
+      console.error(`Error registering user: ${error}`);
     }
   };
 
@@ -134,21 +150,6 @@ const Register = () => {
 
           <form onSubmit={handleRegister}>
             <div className="form-group">
-              <label htmlFor="username">Nazwa użytkownika</label>
-              {errors.username && (
-                  <div className="alert alert-danger">{errors.username}</div>
-              )}
-              <input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  value={registerUser.username}
-                  onChange={handleRegisterInputChange}
-                  required
-              />
-            </div>
-
-            <div className="form-group">
               <label htmlFor="email">Email</label>
               {errors.email && (
                   <div className="alert alert-danger">{errors.email}</div>
@@ -161,7 +162,21 @@ const Register = () => {
                   onChange={handleRegisterInputChange}
                   required
               />
+            </div>
 
+            <div className="form-group">
+              <label htmlFor="username">Nazwa użytkownika</label>
+              {errors.username && (
+                  <div className="alert alert-danger">{errors.username}</div>
+              )}
+              <input
+                  type="text"
+                  className="form-control"
+                  name="username"
+                  value={registerUser.username}
+                  onChange={handleRegisterInputChange}
+                  required
+              />
             </div>
 
             <div className="form-group">

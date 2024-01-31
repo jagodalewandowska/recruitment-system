@@ -111,7 +111,7 @@ const Home = () => {
     return (
         <div className="container mt-4">
             <h3 className="mb-4">Oferty pracy</h3>
-            <button onClick={() => setAddModalOpen(true)} class="btn btn-light btn-block">Dodaj ofertę</button>
+            <button onClick={() => setAddModalOpen(true)} class="btn btn-info btn-block">Dodaj ofertę</button>
             <br></br>
             <table className="table">
                 <thead>

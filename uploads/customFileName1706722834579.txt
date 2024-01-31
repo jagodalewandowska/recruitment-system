@@ -1,0 +1,34 @@
+zmiany w SQL:
+
+1. w create koszyk, zmiana klienci
+
+CREATE TABLE KOSZYK (
+    id_klienta INTEGER NOT NULL,
+    id_prod INTEGER NOT NULL,
+    ilosc INTEGER NOT NULL CHECK(ilosc > 0),
+    cena_jednostkowa DECIMAL(7,2) NOT NULL,
+    CONSTRAINT koszyk_pk PRIMARY KEY (id_klienta, id_prod),
+    CONSTRAINT koszyk_produkt_fk FOREIGN KEY (id_prod)
+        REFERENCES PRODUKT (id_prod),
+    CONSTRAINT koszyk_klienci_fk FOREIGN KEY (user_id)
+        REFERENCES KLIENCI (user_id)
+);
+
+2. usuwamy tabele klienci, robi sie user i user role! ale nie mowimy o tym w sprawku YOLO
+
+3. Modyfikacja koszyka - usunac koszyk klienci??
+
+CREATE TABLE KOSZYK (
+    id_klienta INTEGER NOT NULL,
+    id_prod INTEGER NOT NULL,
+    ilosc INTEGER NOT NULL CHECK(ilosc > 0),
+    cena_jednostkowa DECIMAL(7,2) NOT NULL,
+    CONSTRAINT koszyk_pk PRIMARY KEY (id_klienta, id_prod),
+    CONSTRAINT koszyk_produkt_fk FOREIGN KEY (id_prod)
+        REFERENCES PRODUKT (id_prod),
+    CONSTRAINT koszyk_klienci_fk FOREIGN KEY (user_id)
+        REFERENCES KLIENCI (user_id)
+);
+
+4. Wywalony trigger klienci (w sprawku zostaje)
+

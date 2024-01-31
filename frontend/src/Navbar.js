@@ -65,6 +65,22 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                     </li>
                 )}
 
+                {currentUser && !showAdminBoard && (
+                    <li className="nav-item">
+                        <Link to={"/cv"} className="nav-link">
+                            Wyślij CV
+                        </Link>
+                    </li>
+                )}
+
+                {showAdminBoard && (
+                    <li className="nav-item">
+                        <Link to={"/cvDownload"} className="nav-link">
+                            Pobierz CV
+                        </Link>
+                    </li>
+                )}
+
 
                 {/*{currentUser && (*/}
                 {/*    <li className="nav-item">*/}

@@ -18,6 +18,8 @@ import FileUploadComponent from "./components/FileUploadComponent";
 import Offers from "./components/Offers";
 import ApplicationList from "./components/ApplicationList";
 import FileUpload from "./components/FileUpload";
+import PdfUploadForm from "./components/PdfUploadForm";
+import PdfDownload from "./components/PdfDownload";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -71,6 +73,8 @@ const App = () => {
           <Route path="/applications" element={<ApplicationList/>} />
           <Route path="/fileUploadComponent" element={<FileUploadComponent/>} />
           <Route path="/fileUpload" element={<FileUpload/>} />
+          <Route path="/cv" element={<PdfUploadForm/>} />
+          <Route path="/cvDownload" element={<PdfDownload/>} />
         </Routes>
       </div>
 

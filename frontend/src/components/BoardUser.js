@@ -36,8 +36,12 @@ const BoardUser = () => {
             education,
             experience,
             other_info: otherInfo,
-            user_id: userId,
-            job_id: selectedJob.job_id,
+            user: {
+                user_id: userId,
+            },
+            job: {
+                id: selectedJob.job_id,
+            },
         };
         console.log(newApplication);
         await axios.post("http://localhost:8082/api/applications", newApplication, { headers: authHeader() });

@@ -27,7 +27,7 @@ public class Application {
     private String other_info;
 
     @ManyToOne
-    @JoinColumn(name = "applicant_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne

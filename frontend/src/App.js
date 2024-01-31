@@ -17,6 +17,7 @@ import Navbar from "./Navbar";
 import EventBus from "./common/EventBus";
 import FileUploadComponent from "./components/FileUploadComponent";
 import Offers from "./components/Offers";
+import ApplicationList from "./components/ApplicationList";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -68,6 +69,7 @@ const App = () => {
           <Route path="/offersManagement" element={<Offers/>} />
           <Route path="/mod" element={<BoardModerator/>} />
           <Route path="/admin" element={<BoardAdmin/>} />
+          <Route path="/applications" element={<ApplicationList/>} />
           <Route path="/fileUploadComponent" element={<FileUploadComponent/>} />
         </Routes>
       </div>

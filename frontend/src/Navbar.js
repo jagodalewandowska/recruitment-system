@@ -57,6 +57,15 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                 )}
 
 
+                {showAdminBoard && (
+                    <li className="nav-item">
+                        <Link to={"/applications"} className="nav-link">
+                            Aplikacje
+                        </Link>
+                    </li>
+                )}
+
+
                 {/*{currentUser && (*/}
                 {/*    <li className="nav-item">*/}
                 {/*        <Link to={"/user"} className="nav-link">*/}
@@ -71,7 +80,7 @@ const Navbar = ({ currentUser, logOut, showModeratorBoard, showAdminBoard }) => 
                     <div
                         className="dropdown"
                         onMouseEnter={handleMouseEnter}
-                        onMouseLeve={handleMouseLeave}
+                        onMouseLeave={handleMouseLeave}
                     >
                         <button className="dropdown-toggle" onMouseEnter={toggleDropdown}>
                             <div className="profile-info">

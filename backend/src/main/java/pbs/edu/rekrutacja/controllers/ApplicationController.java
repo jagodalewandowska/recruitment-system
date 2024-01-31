@@ -57,11 +57,7 @@ public class ApplicationController {
     @PostMapping
     public Application createApplication(@RequestBody Application application) {
         application.setDate_of_application(LocalDate.now());
-
         logApplicationProperties(application);
-//        Long jobId = application.getId();
-//        Job job = jobService.getJobById(jobId);
-//        application.setJob(job);
         return applicationService.createApplication(application);
     }
 

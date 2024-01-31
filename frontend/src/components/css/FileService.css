@@ -1,24 +1,131 @@
-.file-drop-area {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px dashed #cccccc;
-    text-align: center;
+/* FileService.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff; /* Dodaj białe tło */
+    padding: 20px; /* Dodaj wypełnienie */
+    box-sizing: border-box; /* Ustal box-sizing na border-box */
 }
 
-.file-drop-area.dragging {
-    border-color: #4caf50;
+.file-list {
+    margin-bottom: 20px;
 }
 
-.file-drop-area h3 {
+.file-list h2,
+.upload-section h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
 }
 
-.file-drop-area p {
-    margin: 5px 0;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-.file-drop-area input {
-    display: none;
+.file-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.file-name {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.download-button,
+.upload-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.download-button:hover,
+.upload-button:hover {
+    background-color: #2980b9;
+}
+
+/* Stylizacja dla sekcji przesyłania plików */
+
+.upload-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.file-input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.file-input-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center; /* Wycentruj zawartość na osi poziomej */
+    align-items: center; /* Wycentruj zawartość na osi pionowej */
+}
+
+.custom-file-input,
+.file-input {
+    display: inline-block;
+    width: calc(100% - 20px); /* Ustaw szerokość z uwzględnieniem paddingu */
+    min-height: 50px; /* Ustaw stałą wysokość */
+    padding: 10px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    background-color: transparent;
+    color: #3498db;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Dodaj płynne przejścia */
+}
+
+
+.custom-file-input:hover,
+.file-input:hover {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+.file-input {
+    /* Zmień styl oryginalnego przycisku wyboru pliku */
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 10px;
+    border: 1px solid #3498db;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.file-input:hover {
+    background-color: #2980b9;
+}
+
+.upload-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Dodaj płynne przejście */
+}
+
+.upload-button:hover {
+    background-color: #2980b9;
 }

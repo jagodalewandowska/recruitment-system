@@ -1,9 +1,12 @@
 package pbs.edu.rekrutacja.controllers;
 
 import jakarta.validation.Valid;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +19,7 @@ import pbs.edu.rekrutacja.repository.FileRepository;
 import pbs.edu.rekrutacja.services.FileService;
 import pbs.edu.rekrutacja.services.UserService;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.Base64;
 
@@ -45,6 +49,20 @@ public class FileController {
         return fileService.getFilesByUser(user.getUser_id(), pageable);
     }
 
+    @GetMapping("/download/{fileId}")
+    public ResponseEntity<Resource> downloadFile(@PathVariable Long fileId) throws IOException {
+        // Pobierz plik z serwisu
+        org.springframework.core.io.Resource resource = fileService.downloadFile(fileId);
+
+        // Pobierz nazwę pliku z Resource
+        String filename = resource.getFilename();
+
+        // Ustaw nagłówki odpowiedzi
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"")
+                .body(resource);
+    }
 
     @GetMapping("/{fileId}")
     ResponseEntity<File> getFileById(@PathVariable Long fileId) {

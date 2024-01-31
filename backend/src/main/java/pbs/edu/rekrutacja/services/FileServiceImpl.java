@@ -1,6 +1,8 @@
 package pbs.edu.rekrutacja.services;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,6 +14,7 @@ import pbs.edu.rekrutacja.models.File;
 import pbs.edu.rekrutacja.models.User;
 import pbs.edu.rekrutacja.repository.FileRepository;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -92,6 +95,28 @@ public class FileServiceImpl implements FileService {
 
         return null; // Handle this case based on your requirements
     }
+
+    @Override
+    public org.springframework.core.io.Resource downloadFile(Long fileId) throws IOException {
+        // Pobierz informacje o pliku z bazy danych
+        File file = fileRepository.findById(fileId)
+                .orElseThrow(() -> new FileNotFoundException("Plik nie znaleziony: " + fileId));
+
+        // Utwórz obiekt Path do pliku
+        Path filePath = Paths.get(uploadFolder).resolve(file.getName()).normalize();
+
+        // Utwórz obiekt UrlResource
+        Resource resource = new UrlResource(filePath.toUri());
+
+        // Sprawdź czy plik istnieje i czy można go odczytać
+        if (Files.exists(filePath) && Files.isReadable(filePath)) {
+            return resource;
+        } else {
+            throw new FileNotFoundException("Nie można odnaleźć pliku: " + file.getName());
+        }
+    }
+
+
 
     @Override
     @Transactional

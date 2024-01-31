@@ -30,7 +30,8 @@ const BoardUser = () => {
     };
 
     const handleSubmit = async () => {
-        const userId = 1;
+        const userData = JSON.parse(localStorage.getItem("user"));
+        const userId = userData.id;
         const newApplication = {
             education,
             experience,

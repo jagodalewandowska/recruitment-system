@@ -80,9 +80,9 @@ public class DataInitializer implements CommandLineRunner {
             user1.setLastName("Kowalski");
             user1.setAddress("ul. Kwiatowa 12");
             user1.setCity("Warszawa");
-            user1.setPostalCode("00-001");
+            user1.setPostalCode("00001");
             user1.setExperience("Doświadczenie zawodowe");
-            user1.setPhoneNumber("123-456-789");
+            user1.setPhoneNumber("123456789");
             userRepository.save(user1);
             System.out.println("Użytkownik dodany: " + user1Username);
         }
@@ -99,9 +99,9 @@ public class DataInitializer implements CommandLineRunner {
             user2.setLastName("Nowak");
             user2.setAddress("ul. Słoneczna 5");
             user2.setCity("Kraków");
-            user2.setPostalCode("30-002");
+            user2.setPostalCode("30002");
             user2.setExperience("Inne doświadczenie");
-            user2.setPhoneNumber("987-654-321");
+            user2.setPhoneNumber("987654321");
             userRepository.save(user2);
             System.out.println("Użytkownik dodany: " + user2Username);
         }
@@ -117,9 +117,9 @@ public class DataInitializer implements CommandLineRunner {
             user3.setLastName("Pączek");
             user3.setAddress("ul. Dębowa 7");
             user3.setCity("Wrocław");
-            user3.setPostalCode("50-100");
+            user3.setPostalCode("50100");
             user3.setExperience("Nowe wyzwania");
-            user3.setPhoneNumber("111-222-333");
+            user3.setPhoneNumber("111222333");
             userRepository.save(user3);
             System.out.println("Użytkownik dodany: " + user3Username);
         }
@@ -135,9 +135,9 @@ public class DataInitializer implements CommandLineRunner {
             user4.setLastName("Wiśniewska");
             user4.setAddress("ul. Piękna 20");
             user4.setCity("Poznań");
-            user4.setPostalCode("60-200");
+            user4.setPostalCode("60200");
             user4.setExperience("Kreatywność");
-            user4.setPhoneNumber("444-555-666");
+            user4.setPhoneNumber("444555666");
             userRepository.save(user4);
             System.out.println("Użytkownik dodany: " + user4Username);
         }
@@ -154,9 +154,9 @@ public class DataInitializer implements CommandLineRunner {
             user5.setLastName("Nowakowski");
             user5.setAddress("ul. Spacerowa 15");
             user5.setCity("Gdańsk");
-            user5.setPostalCode("80-001");
+            user5.setPostalCode("80001");
             user5.setExperience("Rozwijam umiejętności");
-            user5.setPhoneNumber("777-888-999");
+            user5.setPhoneNumber("777888999");
             userRepository.save(user5);
             System.out.println("Użytkownik dodany: " + user5Username);
         }
@@ -173,9 +173,9 @@ public class DataInitializer implements CommandLineRunner {
             user6.setLastName("Lis");
             user6.setAddress("ul. Radosna 8");
             user6.setCity("Łódź");
-            user6.setPostalCode("90-005");
+            user6.setPostalCode("90005");
             user6.setExperience("Praca w zespole");
-            user6.setPhoneNumber("111-222-333");
+            user6.setPhoneNumber("111222333");
             userRepository.save(user6);
             System.out.println("Użytkownik dodany: " + user6Username);
         }
@@ -192,9 +192,9 @@ public class DataInitializer implements CommandLineRunner {
             user7.setLastName("Kowal");
             user7.setAddress("ul. Spokojna 22");
             user7.setCity("Płock");
-            user7.setPostalCode("60-120");
+            user7.setPostalCode("60120");
             user7.setExperience("Kierownik projektu");
-            user7.setPhoneNumber("444-555-666");
+            user7.setPhoneNumber("444555666");
             userRepository.save(user7);
             System.out.println("Użytkownik dodany: " + user7Username);
         }
@@ -211,9 +211,9 @@ public class DataInitializer implements CommandLineRunner {
             user8.setLastName("Wozniak");
             user8.setAddress("ul. Słowackiego 10");
             user8.setCity("Szczecin");
-            user8.setPostalCode("70-010");
+            user8.setPostalCode("70010");
             user8.setExperience("Specjalista ds. marketingu");
-            user8.setPhoneNumber("777-888-999");
+            user8.setPhoneNumber("777888999");
             userRepository.save(user8);
             System.out.println("Użytkownik dodany: " + user8Username);
         }
@@ -230,9 +230,9 @@ public class DataInitializer implements CommandLineRunner {
             user9.setLastName("Zielińska");
             user9.setAddress("ul. Piękna 25");
             user9.setCity("Płock");
-            user9.setPostalCode("60-150");
+            user9.setPostalCode("60150");
             user9.setExperience("Inżynier");
-            user9.setPhoneNumber("111-222-333");
+            user9.setPhoneNumber("111222333");
             userRepository.save(user9);
             System.out.println("Użytkownik dodany: " + user9Username);
         }
@@ -249,9 +249,9 @@ public class DataInitializer implements CommandLineRunner {
             user10.setLastName("Wojcik");
             user10.setAddress("ul. Kwiatowa 30");
             user10.setCity("Kraków");
-            user10.setPostalCode("30-005");
+            user10.setPostalCode("30005");
             user10.setExperience("Programista");
-            user10.setPhoneNumber("444-555-666");
+            user10.setPhoneNumber("444555666");
             userRepository.save(user10);
             System.out.println("Użytkownik dodany: " + user10Username);
         }

@@ -68,7 +68,6 @@ public class DataInitializer implements CommandLineRunner {
     }
 
     private void initializeUsers() {
-        // Użytkownik 1
         String user1Username = "janKowalski";
         String user1Email = "jan.kowalski@gmail.com";
         String user1Password = "haslo123";
@@ -87,7 +86,6 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Użytkownik dodany: " + user1Username);
         }
 
-        // Użytkownik 2
         String user2Username = "annaNowak";
         String user2Email = "anna.nowak@gmail.com";
         String user2Password = "haslo456";
@@ -142,7 +140,6 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Użytkownik dodany: " + user4Username);
         }
 
-        // Użytkownik 5
         String user5Username = "michalNowakowski";
         String user5Email = "michal.nowakowski@gmail.com";
         String user5Password = "hasloXYZ";
@@ -161,7 +158,6 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Użytkownik dodany: " + user5Username);
         }
 
-        // Użytkownik 6
         String user6Username = "karolinaLis";
         String user6Email = "karolina.lis@gmail.com";
         String user6Password = "haslo123ABC";
@@ -180,7 +176,6 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Użytkownik dodany: " + user6Username);
         }
 
-        // Użytkownik 7
         String user7Username = "adamKowal";
         String user7Email = "adam.kowal@gmail.com";
         String user7Password = "haslo456DEF";
@@ -199,7 +194,6 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Użytkownik dodany: " + user7Username);
         }
 
-        // Użytkownik 8
         String user8Username = "magdalenaWozniak";
         String user8Email = "magdalena.wozniak@gmail.com";
         String user8Password = "haslo789GHI";
@@ -218,7 +212,6 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Użytkownik dodany: " + user8Username);
         }
 
-        // Użytkownik 9
         String user9Username = "ewaZielinska";
         String user9Email = "ewa.zielinska@gmail.com";
         String user9Password = "haslo000JKL";
@@ -237,7 +230,6 @@ public class DataInitializer implements CommandLineRunner {
             System.out.println("Użytkownik dodany: " + user9Username);
         }
 
-        // Użytkownik 10
         String user10Username = "tomaszWojcik";
         String user10Email = "tomasz.wojcik@gmail.com";
         String user10Password = "haslo999MNO";

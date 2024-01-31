@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -34,9 +36,15 @@ public class FileController {
     }
 
     @GetMapping
-    Page<File> getFiles(Pageable pageable) {
-        return fileService.getFiles(pageable);
+    Page<File> getFiles(@AuthenticationPrincipal UserDetails userDetails, Pageable pageable) {
+        String username = userDetails.getUsername();
+        System.out.println("username: " + username);
+
+        User user = userService.getUserByUsername(username);
+
+        return fileService.getFilesByUser(user.getUser_id(), pageable);
     }
+
 
     @GetMapping("/{fileId}")
     ResponseEntity<File> getFileById(@PathVariable Long fileId) {

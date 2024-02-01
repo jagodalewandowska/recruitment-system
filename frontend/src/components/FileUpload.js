@@ -72,7 +72,7 @@ const FileManagement = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container-file">
             <div className="file-list">
                 <h2>Lista plików:</h2>
                 <ul>

@@ -3,6 +3,10 @@ label {
   margin-top: 10px;
 }
 
+.container {
+  max-width: 85%;
+}
+
 .card-container.card {
   max-width: 350px !important;
   padding: 40px 40px;
@@ -11,8 +15,7 @@ label {
 .card {
   background-color: #f7f7f7;
   padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
+  margin: 50px auto 25px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
   border-radius: 2px;

@@ -1,6 +1,6 @@
 # rekrutacja-pracowników
 
-Aplikacja na przedmiot Programowanie Zwinne do rekrutacji pracowników.
+Rekrutacja Pracowników is a recruitment management application built with React.js, Spring, and PostgreSQL. It allows recruiters to manage candidates and job listings, including adding, editing, sorting, and deleting entries. Users can register, log in, apply for jobs with attachments, and manage their profiles. Admins have control over user roles, job offers, and system settings via an admin panel. The app ensures data security and provides validation for user inputs.
 
 User stories:
 https://docs.google.com/document/d/114SIXdBXFKqgOiWq2rVUsqF1XfpK0lYdf3MRqXB4-_0/edit
